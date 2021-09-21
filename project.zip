@@ -1,0 +1,193 @@
+
+<!DOCTYPE html>
+<html lang="en" class="lang-en">
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="Cloud powered HTML5 hybrid app development environment. Code and build iOS/Android/Windows apps cross-platform.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="alternative" href="https://monaca.education/ja/login/https%3A%2F%2Fide.monaca.education%2Fpage%2Fproject%2F61499205e788856e223fd8d1%2FdoExport" hreflang="ja">
+  <link rel="alternative" href="https://monaca.education/en/login/https%3A%2F%2Fide.monaca.education%2Fpage%2Fproject%2F61499205e788856e223fd8d1%2FdoExport" hreflang="en">
+  <link rel="stylesheet" href="/css/style.css?1+2021092120" media="all">
+  <link rel="stylesheet" href="/css/font-awesome.min.css" media="all">
+  <link rel="stylesheet" href="/css/magicsuggest-1.3.1-min.css">
+  <link rel="stylesheet" href="/css/slick.css">
+  <link rel="stylesheet" href="/css/cdn/monaca-components.min.css?10+2021092120">
+  <link rel="stylesheet" href="/css/client_customize/style.min.css?10+2021092120">
+  <link rel="shortcut icon" href="/favicon.ico?lang=en&677575bff44bfc10d94a676c1c6810a9" />  
+  <link href='//fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+  <link href='//fonts.googleapis.com/css?family=Open+Sans:700,400' rel='stylesheet' type='text/css'>
+  <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Teko:300,400,500" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Yantramanav:400,500,700,900" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Six+Caps" rel="stylesheet">
+  <script src="/js/web-i18n.en.js" defer></script>
+  <script src="/js/jquery.min.js"></script>
+  <script src="/js/jquery.transit.min.js" defer></script>
+  <script src="/js/jquery.animate-auto.js" defer></script>
+  <script src="/js/jquery.modal.js" defer></script>
+  <script src="/js/jquery.customSelect.min.js" defer></script>
+  <script src="/js/moment.min.js" defer></script>
+  <script src="/js/magicsuggest-1.3.1-min.js" defer></script>
+  <script src="/js/scripts.js?1+2021092120" defer></script>
+  <script src="/js/jquery.slides.min.js" defer></script>
+  <script src="/js/slick.min.js" defer></script>
+  <script src="/js/togglePasswordVisibility.js" defer></script>
+  <meta property="og:type" content="article">
+  <meta property="og:image" content="/img/ogp.png">
+
+  <link rel="stylesheet" href="/js/codemirror-4.1/lib/codemirror.css">
+
+  <!--[if lte IE 8]>
+  <script src="/js/html5.js"></script>
+  <![endif]-->
+  <script src="https://use.typekit.net/gcb5blf.js"></script>
+  <script>try{Typekit.load({ async: true });}catch(e){}</script>
+  <title>Login | HTML5 cross-platform mobile app development with Monaca    </title>
+
+  
+</head>
+
+<body class="lang-en ">
+
+<div id="main-wrap">
+      
+  
+
+<header id="header-simple">
+  <div class="container">
+    <h1 class="logo-client"><a href="https://edu.monaca.io">Monaca</a></h1>
+  </div>
+  <div class="right-block">
+     
+      </div>
+</header>
+  
+  <script src="/js/underscore.min.js"></script>
+
+    <script type="text/javascript">var Kairos3Tracker="asial";</script><script type="text/javascript" charset="utf-8" src="//c.k3r.jp"></script>
+
+<script>
+    $(function() {
+        var isJapan = (window.location.pathname.substr(0, 4) !== '/en/');
+        var $email = $('#login-email');
+        var $emailErrors = $('#login-email-errors');
+        $email.on('keyup', _.debounce(function(e) {
+            var errors = [];
+            var data  = $email.val();
+
+            if (!_.isString(data)) {
+                return;
+            }
+
+            // todo: english
+            if (/[　]/.test(data)) {
+                errors.push('全角空白');
+            }
+
+            data = data.trim();
+
+            if (!/^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~\-@]*$/.test(data)) {
+                if (/[＠]/.test(data)) {
+                    errors.push('全角＠');
+                }
+
+                if (/[．]/.test(data)) {
+                    errors.push('全角ドット')
+                }
+
+                if (errors.length === 0) {
+                    errors.push('全角文字または不正な文字');
+                }
+            }
+
+            if (errors.length === 0) {
+                $emailErrors.hide();
+            } else {
+                $emailErrors.show();
+
+                if (isJapan) {
+                    $emailErrors.text('メールアドレスに' + errors.join(', ') + 'が含まれています');
+                } else {
+                    $emailErrors.text('Invalid email');
+                }
+            }
+        }, 300));
+    });
+</script>
+<style>
+  body {
+    min-width: 0;
+  }
+  #footer-simple {
+    width: auto;
+  }
+  .login-errors {
+    margin: 5px 0 10px;
+    color: #a60000;
+  }
+</style>
+<section id="login">
+  <div class="container">
+    <h2>Login</h2>
+
+    <form class="login-form" method="post" action="/en/login" onsubmit="$('#execute_login').prop('disabled', true);">
+      <ul>
+        
+        
+        <li class="email">
+          <input type="email" name="form[email]" maxlength="255" placeholder="Email address" class="email" aria-label="email" id="login-email" />          <div class="login-errors" id="login-email-errors"></div>
+        </li>
+        <li class="password">
+          <input autocomplete="off" type="password" name="form[password]" maxlength="30" placeholder="Password" class="password" aria-label="password" id="form_password" />          <i class="fa fa-eye fa-2x toggle-password"></i>
+        </li>
+        <li class="checkbox">
+          <input type="checkbox" name="form[remember_id]" value="1" id="remember_email" checked="checked" />          <label for="remember_email">Keep my account logged in</label>
+        </li>
+        <li>
+          <button id="execute_login" type="submit" onclick="blur()" class="btn-blue btn-client">Login</button>
+        </li>
+      </ul>
+      <input type="hidden" name="form[_csrf_token]" value="30417fb055c80f51c213290ed08aeb9a" id="form__csrf_token" />    </form>
+
+    <div class="bottom">
+              <a href="/en/lost/password_page">Forgot password?</a>
+          </div>
+
+            <div style="width: 100%; text-align: center;">
+            <div class="or-box">
+                <hr class="line-l"/>
+                or
+                <hr class="line-r"/>
+            </div>
+        </div>
+                          <div style="width: 100%; text-align: center;">
+            <div onClick="location.href='/en/oauth/google/16322222216536'"
+                 id="google-login" class="btn-google">
+                <div class="google-img"></div>
+                <div class="signup-label">Sign in with Google</div>
+            </div>
+        </div>
+                          <br/>
+              <div style="width: 100%; text-align: center;">
+            <div onClick="location.href='/en/oauth/microsoft/16322222216536'"
+                 id="microsoft-login" class="btn-microsoft">
+                <div class="microsoft-img"></div>
+                <div class="signup-label">Sign in with Microsoft</div>
+            </div>
+        </div>
+    
+      <div class="signup-block">
+                    <a href="/en/signup">Create an account</a>
+              </div>
+  </div>
+</section>
+  
+  <footer id="footer-simple">
+  <div class="container">
+    <p class="copyright">Copyright &copy; 2021 <a href="http://www.asial.co.jp/en" target="_blank" rel="nofollow noopener">Asial Corporation</a>. All rights reserved.
+  </div>
+</footer>
+</div>
+
+</body>
+</html>
