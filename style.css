@@ -15,8 +15,8 @@ body {
 
 .loader {
     position: relative;
-    width: 150px;
-    height: 150px;
+    width: 15vmin;
+    height: 15vmin;
     border-radius: 50%;
     background: linear-gradient(45deg,transparent,transparent 20%, yellow);
     animation: animate 1.5s linear infinite;
@@ -36,10 +36,10 @@ body {
 .loader::before {
     content: " ";
     position: absolute;
-    top: 6px;
-    left: 6px;
-    right: 6px;
-    bottom: 6px;
+    top: 0.6vmin;
+    left: 0.6vmin;
+    right: 0.6vmin;
+    bottom: 0.6vmin;
     border-radius: 50%;
     background: #222;
     z-index: 100;
@@ -56,5 +56,5 @@ body {
     border-radius: 50%;
     background: linear-gradient(45deg,transparent,transparent 20%, yellow);
     z-index: 1;
-    filter: blur(30px);
+    filter: blur(3vmin);
 }  
